@@ -1,3 +1,20 @@
+
+// implementation of AVL Tree
+
+// It is self balancing binary search tree where the difference between heights of the
+// left & right sub tree cannot be morethan one for all nodes
+// or we can say that it is a Balanced binary search tree
+// the benefit is it requires less time to traverse, insert, delete a node than a non AVL Tree
+
+//We can convert a binary sub tree to AVL Tree by using the 4 methods called (AVL tree Rotations)
+
+// 1) Right Rotation
+// 2) Left Rotation
+// 3) Right Left Rotation
+// 4) Left Right Rotation
+
+// This program is the implementation of AVL Tree (With Rotations
+
 public class AVLTree {
 
 
@@ -104,7 +121,7 @@ public class AVLTree {
       str += node.left.data;
 
     }
-    str += " => "+ node.data +" <= ";
+    str += "---"+ node.data +"---";
 
     if(node.right == null)
     {
@@ -153,7 +170,7 @@ public class AVLTree {
     b.left = c;
     c.right = T2;
 
-  // height updation
+  // height updation Logic
 
     c.height = Math.max(height(c.left), height(c.right)) +1;
     b.height = Math.max(height(b.left), height(b.right)) +1;
@@ -161,6 +178,8 @@ public class AVLTree {
 
   }
 
+
+  // Check the Balancing Factor
   private int bf(Node node)
   {
       if(node == null)
@@ -170,6 +189,7 @@ public class AVLTree {
       return height(node.left)- height(node.right);
 
   }
+
 
   public static void main(String[] args) {
 
